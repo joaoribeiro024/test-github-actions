@@ -11,7 +11,7 @@
     "lint:fix": "ng lint --fix",
     "style-lint": "npx stylelint **/*.css",
     "style-lint:fix": "npx stylelint **/*.css --fix",
-    "prettier": "npx prettier",
+    "prettier": "npx prettier --check",
     "prettier-fix": "npx prettier --write .",
     "all-checks": "ng lint --fix && npx stylelint **/*.css --fix && npx prettier --write ."
   },

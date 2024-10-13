@@ -4,16 +4,13 @@ on:
   push:
     branches:
       - main
-  pull_request:
-    branches:
-      - main
 
 jobs:
   lint:
     runs-on: ubuntu-latest
 
     steps:
-      # Step 1: Checkout the repositor
+      # Step 1: Checkout the repository
 
 
       - name: Checkout repository
@@ -34,6 +31,10 @@ jobs:
       - name: Run linting
         working-directory: ./client
         run: npm run lint
+
+      - name: Run style lint
+        working-directory: ./client
+        run: npm run style-lint
 
       - name: Run prettier
         working-directory: ./client
