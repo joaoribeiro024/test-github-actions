@@ -20,19 +20,13 @@ jobs:
       name: Lint
       runs-on: 'cawe-linux-x64-compute-medium'
       permissions:
-        id-token: write # This is required for requesting the JWT
-        contents: read # This is required for actions/checkout
+        id-token: write
+        contents: read
       steps:
         # ************************ SETUP ************************
         # Repository Checkout
         - name: Checkout Repository Code
           uses: actions/checkout@v4
-
-        # Setup Environment
-        - name: Setup Environment
-          uses: "./.github/actions/setup"
-          with:
-            NODE_VERSION: 20
 
         # Setup Npm
         - name: Setup Npm
@@ -41,13 +35,6 @@ jobs:
             node-version: 20
             cache: 'npm'
             cache-dependency-path: ./package-lock.json
-
-        # Install Dependencies
-        - name: Install Dependencies
-          uses: "./.github/actions/node"
-          with:
-            cmd: "install --legacy-peer-deps"
-        # ********************** END SETUP **********************
 
         - name: Lint
           uses: "./.github/actions/node"
