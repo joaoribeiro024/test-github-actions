@@ -34,3 +34,7 @@ jobs:
       - name: Run linting
         working-directory: ./client
         run: npm run lint
+
+      - name: Run prettier
+        working-directory: ./client
+        run: npm run prettier
