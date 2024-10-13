@@ -1,15 +1,17 @@
----
 version: 2
 updates:
-  - package-ecosystem: "github-actions"
-    directory: "/"
+  - package-ecosystem: "npm"
+    directory: "./"
     schedule:
-      interval: "weekly"
-  - package-ecosystem: npm
-    directory: "/javascript"
-    schedule:
-      interval: "weekly"
-  - package-ecosystem: bundler
-    directory: "/ruby"
-    schedule:
-      interval: "weekly"
+      interval: "daily"
+      time: "06:00"
+    #This is to set the limit of open PRs in the project
+    open-pull-requests-limit: 1
+    # Group all frontend dependencies in single pull request
+    groups:
+      frontend:
+        patterns: ["*"]
+    #This is to ignore major packages updates
+    ignore:
+      - dependency-name: "*"
+        update-types: [ "version-update:semver-major", "version-update:semver-minor" ]
