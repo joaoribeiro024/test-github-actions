@@ -7,7 +7,14 @@
     "build": "ng build",
     "watch": "ng build --watch --configuration development",
     "test": "ng test",
-    "lint": "ng lint"
+    "lint": "ng lint",
+    "lint:fix": "ng lint --fix",
+    "style-lint": "npx stylelint **/*.css",
+    "style-lint:fix": "npx stylelint **/*.css --fix",
+    "prettier": "npx prettier",
+    "prettier-fix": "npx prettier --write .",
+    "all-checks": "ng lint --fix && npx stylelint **/*.css --fix && npx prettier --write ."
+
   },
   "private": true,
   "dependencies": {
