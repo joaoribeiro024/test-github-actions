@@ -13,12 +13,9 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      # Step 1: Checkout the repository
+      # Step 1: Checkout the repositor
 
-      - name: Checkout repository
-        run: cd ../client
 
-      
       - name: Checkout repository
         uses: actions/checkout@v3
 
