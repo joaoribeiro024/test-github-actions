@@ -1,0 +1,56 @@
+# This is a basic workflow to help you get started with Actions
+
+name: '[1] 🔄 Test & Build opened Pull Request'
+run-name: Build PR - ${{ github.ref_name }}
+
+# Controls when the workflow will run
+on:
+  # Triggers the workflow on push or pull request events but only for the "main" branch
+  push:
+    branches: [ "main" ]
+  pull_request:
+    branches: [ "main" ]
+
+  # Allows you to run this workflow manually from the Actions tab
+  workflow_dispatch:
+
+# A workflow run is made up of one or more jobs that can run sequentially or in parallel
+jobs:
+  jobs:
+    lint:
+      name: Lint
+      runs-on: 'cawe-linux-x64-compute-medium'
+      permissions:
+        id-token: write # This is required for requesting the JWT
+        contents: read # This is required for actions/checkout
+      steps:
+        # ************************ SETUP ************************
+        # Repository Checkout
+        - name: Checkout Repository Code
+          uses: actions/checkout@v4
+
+        # Setup Environment
+        - name: Setup Environment
+          uses: "./.github/actions/setup"
+          with:
+            NODE_VERSION: 20
+
+        # Setup Npm
+        - name: Setup Npm
+          uses: actions/setup-node@v3
+          with:
+            node-version: 20
+            cache: 'npm'
+            cache-dependency-path: ./package-lock.json
+
+        # Install Dependencies
+        - name: Install Dependencies
+          uses: "./.github/actions/node"
+          with:
+            cmd: "install --legacy-peer-deps"
+        # ********************** END SETUP **********************
+
+        - name: Lint
+          uses: "./.github/actions/node"
+          with:
+            cmd: "run lint"
