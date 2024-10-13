@@ -37,4 +37,4 @@ jobs:
 
       - name: Run prettier
         working-directory: ./client
-        run: npm run prettier
+        run: npm run prettier:fix

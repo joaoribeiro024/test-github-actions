@@ -14,7 +14,6 @@
     "prettier": "npx prettier",
     "prettier-fix": "npx prettier --write .",
     "all-checks": "ng lint --fix && npx stylelint **/*.css --fix && npx prettier --write ."
-
   },
   "private": true,
   "dependencies": {
