@@ -1,4 +1,4 @@
-name: Lint Angular App
+name: Angular checks 🚀
 
 on:
   push:
