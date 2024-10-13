@@ -4,14 +4,7 @@ updates:
     directory: "./"
     schedule:
       interval: "daily"
-      time: "06:00"
-    #This is to set the limit of open PRs in the project
-    open-pull-requests-limit: 1
-    # Group all frontend dependencies in single pull request
-    groups:
-      frontend:
-        patterns: ["*"]
-    #This is to ignore major packages updates
+      time: "08:00"
     ignore:
       - dependency-name: "*"
         update-types: [ "version-update:semver-major", "version-update:semver-minor" ]
