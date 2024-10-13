@@ -1,42 +1,32 @@
-# This is a basic workflow to help you get started with Actions
+name: Lint Angular App
 
-name: '[1] 🔄 Test & Build opened Pull Request'
-run-name: Build PR - ${{ github.ref_name }}
-
-# Controls when the workflow will run
 on:
-  # Triggers the workflow on push or pull request events but only for the "main" branch
   push:
-    branches: [ "main" ]
+    branches:
+      - main
   pull_request:
-    branches: [ "main" ]
+    branches:
+      - main
 
-  # Allows you to run this workflow manually from the Actions tab
-  workflow_dispatch:
-
-# A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
-    lint:
-      name: Lint
-      runs-on: 'cawe-linux-x64-compute-medium'
-      permissions:
-        id-token: write
-        contents: read
-      steps:
-        # ************************ SETUP ************************
-        # Repository Checkout
-        - name: Checkout Repository Code
-          uses: actions/checkout@v4
+  lint:
+    runs-on: ubuntu-latest
 
-        # Setup Npm
-        - name: Setup Npm
-          uses: actions/setup-node@v3
-          with:
-            node-version: 20
-            cache: 'npm'
-            cache-dependency-path: ./package-lock.json
+    steps:
+      # Step 1: Checkout the repository
+      - name: Checkout repository
+        uses: actions/checkout@v3
 
-        - name: Lint
-          uses: "./.github/actions/node"
-          with:
-            cmd: "run lint"
+      # Step 2: Set up Node.js environment
+      - name: Setup Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: '18'
+
+      # Step 3: Install dependencies
+      - name: Install dependencies
+        run: npm install
+
+      # Step 4: Run linting
+      - name: Run linting
+        run: npm run lint
