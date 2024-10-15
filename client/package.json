@@ -46,6 +46,7 @@
     "karma-jasmine-html-reporter": "~2.1.0",
     "prettier": "^3.3.3",
     "prettier-eslint": "^16.3.0",
+    "puppeteer": "^23.5.3",
     "stylelint": "^16.10.0",
     "stylelint-config-standard": "^36.0.1",
     "typescript": "~5.5.2",
