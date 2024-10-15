@@ -1,4 +1,4 @@
-name: Angular checks 🔎
+name: Push checks 🔎
 
 on:
   push:
@@ -6,7 +6,7 @@ on:
       - '**'
 
 jobs:
-  lint:
+  Validations and Tests:
     runs-on: ubuntu-latest
 
     steps:
