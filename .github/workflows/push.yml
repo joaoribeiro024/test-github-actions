@@ -3,7 +3,7 @@ name: Angular checks 🔎
 on:
   push:
     branches:
-      - main
+      - '**'
 
 jobs:
   lint:
@@ -30,6 +30,10 @@ jobs:
         working-directory: ./client
         run: npm run format
 
-      - name: Run Karma Tests
+      - name: Run Unit Tests
         working-directory: ./client
         run: npm run test:ci
+
+      - name: Run Karma Tests
+        working-directory: ./client
+        run: npm run playwright
