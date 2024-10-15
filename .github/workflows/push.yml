@@ -26,13 +26,9 @@ jobs:
         working-directory: ./client
         run: npm run lint
 
-      - name: Run style lint checks
-        working-directory: ./client
-        run: npm run style-lint
-
       - name: Run prettier checks
         working-directory: ./client
-        run: npm run prettier
+        run: npm run format
 
       - name: Run Karma Tests
         working-directory: ./client
