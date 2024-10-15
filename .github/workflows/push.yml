@@ -34,9 +34,6 @@ jobs:
         working-directory: ./client
         run: npm run prettier
 
-      - name: Install Chromium
-        run: sudo apt-get install -y chromium-browser
-
       - name: Run Karma Tests
         working-directory: ./client
         run: npm test
