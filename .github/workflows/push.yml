@@ -6,7 +6,7 @@ on:
       - '**'
 
 jobs:
-  Validations and Tests:
+  validations:
     runs-on: ubuntu-latest
 
     steps:
