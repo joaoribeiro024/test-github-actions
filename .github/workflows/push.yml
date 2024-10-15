@@ -36,4 +36,4 @@ jobs:
 
       - name: Run Karma Tests
         working-directory: ./client
-        run: npm test
+        run: npm test:ci
