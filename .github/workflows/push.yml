@@ -1,4 +1,4 @@
-name: Angular checks 🚀
+name: Angular checks 🔎
 
 on:
   push:
@@ -10,33 +10,30 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      # Step 1: Checkout the repository
-
-
       - name: Checkout repository
         uses: actions/checkout@v3
 
-      # Step 2: Set up Node.js environment
       - name: Setup Node.js
         uses: actions/setup-node@v3
         with:
           node-version: '18'
 
-      # Step 3: Install dependencies
       - name: Install dependencies
         working-directory: ./client
         run: npm install
 
-      # Step 4: Run linting
-      - name: Run linting
+      - name: Run linting checks
         working-directory: ./client
         run: npm run lint
 
-      - name: Run style lint
+      - name: Run style lint checks
         working-directory: ./client
         run: npm run style-lint
 
-      - name: Run prettier
+      - name: Run prettier checks
         working-directory: ./client
         run: npm run prettier
 
+      - name: Run Karma Tests
+        working-directory: ./client
+        run: npm test
