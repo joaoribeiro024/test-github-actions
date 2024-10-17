@@ -42,7 +42,7 @@
     "@angular-devkit/build-angular": "^18.2.5",
     "@angular/cli": "^18.2.5",
     "@angular/compiler-cli": "^18.2.0",
-    "@playwright/test": "^1.48.0",
+    "@playwright/test": "^1.48.1",
     "@types/jasmine": "~5.1.0",
     "@types/node": "^22.7.5",
     "angular-eslint": "18.3.1",
